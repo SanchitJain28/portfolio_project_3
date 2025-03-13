@@ -21,6 +21,7 @@ interface Section3Sections {
     bgColor?: string
 }
 export default function HomePage() {
+    const [isFakeFormSubmitted, setIsFakeFormSubmitted] = useState<boolean>(false)
     const [sections, setSections] = useState<Section3Sections[] | []>([
         {
             title: 'Pick your bundle',
@@ -55,12 +56,15 @@ export default function HomePage() {
             {/* //FOR PC SECTION 1*/}
             <div className="lg:flex lg:flex-col  items-center hidden" id="section1 FOR PC">
                 <div id="section1Absolute" className='absolute my-20'>
-                    <p className={` lg:text-5xl text-xl font-sans text-center mt-10 mb-40 ${paytoneOne.className}`}>You deserve to spend less<br />
+                    <p className={` lg:text-5xl text-xl text-white font-light font-sans text-center mt-10 mb-40 ${paytoneOne.className}`}>You deserve to spend less<br />
                         time making your grid look like<br />this.Or this.Or eventhis.</p>
                     <div id="section1sub1 " className="flex justify-center">
                         <img src='https://framerusercontent.com/images/Wja21cnGj5X8UyQooAoK3HEwg.png?scale-down-to=512' className='mx-4 w-60 h-60' />
                         <img src='https://framerusercontent.com/images/LwjvGt9JoipscS8sPv5USMUM.png?scale-down-to=512' className='mx-4 w-60 h-60' />
-                        <img src='https://framerusercontent.com/images/yCaEX9L7T1cvpbviEJMDPTQ0Y0.png?scale-down-to=512' className='mx-4 w-60 h-60' />
+                        <img
+                            src='https://framerusercontent.com/images/yCaEX9L7T1cvpbviEJMDPTQ0Y0.png?scale-down-to=512'
+                            alt=""
+                            className='mx-4 w-60 h-60' />
                     </div>
                 </div>
                 <img src='https://framerusercontent.com/images/p3vqRm8Cv6gXyXmNF0WrP3KGuvw.png' />
@@ -295,7 +299,46 @@ export default function HomePage() {
 
             </div>
             {/* //FOR BOTH MOBILE AND LARGE SCREENS SECTION 7*/}
+            <div className="bg-[#1D1D1D] lg:px-32 px-8 py-8 flex lg:flex-row flex-col justify-between">
+                <div className="border-b-2 lg:border-b-0 lg:border-r-2 border-[#E34135] my-4 basis-1/2
+">
+                    <p className="font-mono text-4xl text-white font-bold ">CAME FOR<br />
+                        STAYED FOR
+                        STAYED FOR<br />
+                        STAYED FOR
+                        THE GLOW UP</p>
+                    <p className="font-mono text-4xl text-white font-bold my-4">FOLLOW US ON
+                    </p>
+                    <p className="font-mono text-white font-bold my-4">© Content on Demand (by Brand Therapy). All rights reserveds
+                    </p>
+                </div>
+                <div className="">
+                    <p className="font-mono text-lg text-white font-bold ">Join our Newsletter- ABC (All ‘bout content) </p>
+                    <div className="flex flex-col">
+                        {isFakeFormSubmitted ?
+                            <div>
+                                <p className="text-white lg:mx-4 lg:my-0 my-1 underline text-xl">Form submitted</p>
+                            </div> :
+                            <div className="flex flex-col">
+                                <input className="p-4 bg-white text-black my-1 w-full" placeholder="Full name" />
+                                <input className="p-4 bg-white text-black my-1 w-full" placeholder="email" />
+                                <input className="p-4 bg-white text-black my-1 w-full" placeholder="I'm a " />
+                                <button onClick={() => {
+                                    setTimeout(() => {
+                                        setIsFakeFormSubmitted(true);
+                                    }, 1000);
+                                }} className="bg-[#E34135] text-white text-lg font-bold px-4 py-2 my-2 w-full">Buy this bundle</button>
+                            </div>}
 
+                        <div className="flex lg:flex-row flex-col my-4">
+                            <a className="text-white lg:mx-4 lg:my-0 my-1 underline text-sm">Terms of Use </a>
+                            <a className="text-white lg:mx-4 lg:my-0 my-1 underline text-sm">Privacy Policy</a>
+                            <a className="text-white lg:mx-4 lg:my-0 my-1 underline text-sm">Return & Refund Policy</a>
+                            <a className="text-white lg:mx-4 lg:my-0 my-1 underline text-sm">Contact</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
